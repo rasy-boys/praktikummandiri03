@@ -1,0 +1,310 @@
+/* ---------- dasar ---------- */
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --tinta: #14213d;
+  --tinta-pudar: #4b5b78;
+  --kertas: #fdfdfa;
+  --meja: #e3edf1;
+  --garis-meja: #c8d9e0;
+  --garis-tipis: #a9b8cb;
+  --biru: #2455c3;
+  --stabilo: #ffd84d;
+}
+
+body {
+  margin: 0;
+  padding: 32px 14px 48px;
+  color: var(--tinta);
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  /* latar kertas milimeter */
+  background-color: var(--meja);
+  background-image:
+    linear-gradient(var(--garis-meja) 1px, transparent 1px),
+    linear-gradient(90deg, var(--garis-meja) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+a {
+  color: var(--biru);
+  text-underline-offset: 3px;
+}
+
+a:focus-visible,
+video:focus-visible {
+  outline: 3px solid var(--stabilo);
+  outline-offset: 3px;
+}
+
+h1, h2 {
+  margin: 0;
+  font-family: Georgia, "Palatino Linotype", "Times New Roman", serif;
+  line-height: 1.2;
+}
+
+/* judul bagian: digarisbawahi seperti pakai stabilo */
+h2 {
+  display: inline-block;
+  padding: 0 4px;
+  margin-left: -4px;
+  background: linear-gradient(transparent 58%, var(--stabilo) 58%);
+}
+
+/* ---------- lembar utama ---------- */
+.halaman {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 36px 36px 24px;
+  background: var(--kertas);
+  border: 2px solid var(--tinta);
+}
+
+/* ---------- kepala ---------- */
+.kepala {
+  display: grid;
+  grid-template-columns: 200px 1fr 160px;
+  gap: 32px;
+  align-items: start;
+}
+
+.foto-diri {
+  margin: 0;
+  border: 2px solid var(--tinta);
+  background: var(--garis-meja);
+  box-shadow: 6px 6px 0 var(--tinta);
+}
+
+.foto-diri img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.tombol-cv {
+  display: block;
+  margin-top: 22px;
+  padding: 9px 10px;
+  border: 2px solid var(--tinta);
+  background: var(--stabilo);
+  color: var(--tinta);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 4px 4px 0 var(--tinta);
+  transition: transform 0.08s, box-shadow 0.08s;
+}
+
+.tombol-cv:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--tinta);
+}
+
+.tombol-cv:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 var(--tinta);
+}
+
+.identitas h1 {
+  font-size: 2rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.biodata {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.biodata th,
+.biodata td {
+  padding: 6px 12px 6px 0;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px dotted var(--garis-tipis);
+}
+
+.biodata th {
+  width: 9.5em;
+  font-weight: 600;
+  color: var(--tinta-pudar);
+}
+
+.biodata tr:last-child th,
+.biodata tr:last-child td {
+  border-bottom: 0;
+}
+
+.kategori {
+  text-align: right;
+}
+
+.kategori h2 {
+  font-size: 1.05rem;
+  margin: 0 -4px 10px 0;
+}
+
+.kategori ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.88rem;
+}
+
+.kategori li {
+  padding: 5px 0;
+  border-bottom: 1px dotted var(--garis-tipis);
+}
+
+.kategori li:last-child {
+  border-bottom: 0;
+}
+
+/* ---------- deskripsi ---------- */
+.deskripsi {
+  margin: 44px 0 40px;
+}
+
+.deskripsi h2 {
+  font-size: 1.45rem;
+  margin-bottom: 14px;
+}
+
+.deskripsi p {
+  margin: 0 0 16px;
+  line-height: 1.75;
+}
+
+/* ---------- multimedia: video & koleksi sama tinggi ---------- */
+.multimedia {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 300px;
+  gap: 20px;
+}
+
+.kotak {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  margin: 0;
+  padding: 12px;
+  border: 2px solid var(--tinta);
+  background: #fff;
+}
+
+.kotak h2 {
+  align-self: flex-start;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.video video {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  object-fit: cover;
+  background: var(--tinta);
+}
+
+.video figcaption {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--tinta-pudar);
+}
+
+.grid-foto {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+}
+
+.grid-foto img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  background: var(--garis-meja);
+  border: 1px solid var(--tinta);
+}
+
+/* ---------- footer ---------- */
+footer {
+  margin-top: 36px;
+  padding-top: 12px;
+  border-top: 1px dotted var(--garis-tipis);
+  font-size: 0.78rem;
+  color: var(--tinta-pudar);
+}
+
+footer p {
+  margin: 0;
+}
+
+/* ---------- layar kecil ---------- */
+@media (max-width: 760px) {
+  body {
+    padding: 16px 10px 32px;
+  }
+
+  .halaman {
+    padding: 20px 18px;
+  }
+
+  .kepala {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .kolom-foto {
+    max-width: 200px;
+  }
+
+  .kategori {
+    text-align: left;
+  }
+
+  .kategori h2 {
+    margin: 0 0 10px -4px;
+  }
+
+  .biodata th {
+    width: auto;
+    white-space: nowrap;
+  }
+
+  .multimedia {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+
+  .video video {
+    flex: none;
+    aspect-ratio: 16 / 9;
+  }
+
+  .grid-foto {
+    flex: none;
+  }
+
+  .grid-foto img {
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tombol-cv {
+    transition: none;
+  }
+}
